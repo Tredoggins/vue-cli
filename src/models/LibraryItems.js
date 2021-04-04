@@ -21,16 +21,19 @@ function LibraryItem(media,removeMethod){
 function Book(title,pages){
     this.title=title;
     this.pages=pages;
+    this.type=Book;
 }
 class Movie{
     constructor(title,runtime){
         this.title=title;
         this.runtime=runtime;
+        this.type=Movie;
     }
 }
 function Album(title,artist,trackCount){
     this.title=title;
     this.artist=artist;
     this.trackCount=trackCount;
+    this.type=Album;
 }
 export {LibraryItem,Book,Movie,Album};

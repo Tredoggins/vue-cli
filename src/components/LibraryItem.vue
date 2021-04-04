@@ -11,9 +11,16 @@
 </template>
 
 <script>
-import Book from "@/components/Book";
-import Movie from "@/components/Movie";
-import Album from "@/components/Album";
+import book from "@/components/Book";
+import featureMovie from "@/components/Movie";
+import album from "@/components/Album";
+import audiobook from "@/components/AudioBook";
+import ebook from "@/components/EBook";
+import podcast from "@/components/Podcast";
+import musicVideo from "@/components/MusicVideo";
+import song from "@/components/Song";
+import software from "@/components/Software";
+import tvEpisode from "@/components/TVEpisode";
 export default {
   name: "LibraryItem",
   props:{
@@ -25,18 +32,25 @@ export default {
   methods:{
     addToBag() {
       console.log("adding "+this.item+" to bag");
-      this.$emit('add-to-bag',this.item);
+      this.$emit('add-to-bag',Object.assign(Object.create(Object),this.item));
     }
   },
   computed:{
     typeOfItem(){
-      return this.item.constructor.name;
+      return this.item.kind;
     }
   },
   components:{
-    Book,
-    Movie,
-    Album
+    book,
+    featureMovie,
+    album,
+    audiobook,
+    ebook,
+    podcast,
+    musicVideo,
+    song,
+    software,
+    tvEpisode
   }
 }
 </script>
