@@ -9,8 +9,8 @@ function BagItem(media,removeMethod){
 }
 
 export default function BagCollection() {
-    this.__proto__=[];
-    this.addItem=function(item){
+    let arr=[];
+    arr.addItem=function(item){
         this.push(new BagItem(item,
             //(item)=>this.remove(item)
             ((collection)=>function(){
@@ -19,8 +19,9 @@ export default function BagCollection() {
         ));
         return this;
     }
-    this.remove=function(item){
+    arr.remove=function(item){
         this.splice(this.indexOf(item),1);
         return this;
     }
+    return arr;
 }

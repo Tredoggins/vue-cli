@@ -1,8 +1,8 @@
 import {LibraryItem} from "@/models/LibraryItems";
 
 export default function LibraryCollection() {
-    this.__proto__=[];
-    this.addItem=function(item){
+    let arr=[];
+    arr.addItem=function(item){
         this.push(new LibraryItem(item,
             //(item)=>this.remove(item)
             ((collection)=>function(){
@@ -11,8 +11,9 @@ export default function LibraryCollection() {
         ));
         return this;
     }
-    this.remove=function(item){
+    arr.remove=function(item){
         this.splice(this.indexOf(item),1);
         return this;
     }
+    return arr;
 }

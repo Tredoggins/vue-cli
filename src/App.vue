@@ -73,6 +73,15 @@ export default {
           }
           return false;
         }).checkOut();
+        console.log(this.library.find(el=>{
+          if(this.bag[i].trackId){
+            return (el.trackId===this.bag[i].trackId);
+          }
+          else if(el.collectionId){
+            return el.collectionId===this.bag[i].collectionId;
+          }
+          return false;
+        }));
         this.bag.splice(i,1);
       }
     },
@@ -85,7 +94,7 @@ export default {
             term:this.search,
             country:"US",
             limit:12,
-            //media:"software"
+            media:"software"
           }
         }
         axios.get(url,config)

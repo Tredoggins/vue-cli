@@ -25,7 +25,7 @@ export default {
   },
   props:{
     library:{
-      type:Object,
+      type:Array,
       required:true
     }
   }
